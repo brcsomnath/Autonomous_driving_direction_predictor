@@ -282,8 +282,8 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata)
 
 
 int main(int argc, char** argv){
-	if(argc!=4){
-		cout<<"\nArguments list:\n1. Image name with address on disk\n2.pyrDown yes/no -> 1 for Yes, 2 for No\n3. No. of road points"<<endl;
+	if(argc!=5){
+		cout<<"\nArguments list:\n1. Image name with address on disk\n2.pyrDown yes/no -> 1 for Yes, 2 for No\n3. No. of road points\n4. Number of clusters"<<endl;
 		return 0;
 	}
 	int numOfPoints = atoi(argv[3]);
@@ -319,7 +319,7 @@ int main(int argc, char** argv){
 		avgRoadColor.second+=roadColors[i].second;
 	}
 	avgRoadColor.first/=numOfPoints;avgRoadColor.second/=numOfPoints;
-	cv::Mat predicted = EMMaxwellTriangle(maxwellMap,3,avgRoadColor);
+	cv::Mat predicted = EMMaxwellTriangle(maxwellMap,atoi(argv[4]),avgRoadColor);
 	simpleDecomposition(im,predicted,avgRoadColor);
 	return 0;
 }
