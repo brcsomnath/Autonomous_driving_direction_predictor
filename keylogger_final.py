@@ -34,16 +34,6 @@ def OnKeyboardEvent(event):
         imgs2 = []
         labels = []
     if event.Key =='X':
-        global ctrleft,ctrright,ctrup,ctrdown
-        DataFolder = 'C:/Users/arna/Desktop/Data_2/'
-        A=glob.glob(DataFolder+'Left*')
-        ctrleft = len(A)/2;
-        A=glob.glob(DataFolder+'Right*')
-        ctrright = len(A)/2;
-        A=glob.glob(DataFolder+'Up*')
-        ctrup = len(A)/2;
-        A=glob.glob(DataFolder+'Down*')
-        ctrdown = len(A)/2;
         print(ctrleft,ctrright,ctrup,ctrdown)
         global imgs1,imgs2,labels
         for i in range(len(imgs1)):
@@ -82,6 +72,17 @@ def OnKeyboardEvent(event):
     elif event.Key == 'E':
         exit()
     return True
+
+global ctrleft,ctrright,ctrup,ctrdown
+DataFolder = 'C:/Users/arna/Desktop/Data_2/'
+A=glob.glob(DataFolder+'Left*')
+ctrleft = len(A)/2;
+A=glob.glob(DataFolder+'Right*')
+ctrright = len(A)/2;
+A=glob.glob(DataFolder+'Up*')
+ctrup = len(A)/2;
+A=glob.glob(DataFolder+'Down*')
+ctrdown = len(A)/2;
 # create a hook manager
 hm = pyHook.HookManager()
 # watch for all mouse events
